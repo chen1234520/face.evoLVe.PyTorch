@@ -98,6 +98,7 @@ While not required, for optimal performance it is **highly** recommended to run 
 
 ****
 ### Face Alignment 
+数据集中人脸矫正，采用MTCNN检测图片中人脸然后进行矫正
 :triangular_ruler:
 
 <img src="https://github.com/ZhaoJ9014/face.evoLVe.PyTorch/blob/master/disp/Fig2.png" width="900px"/>
@@ -118,6 +119,7 @@ While not required, for optimal performance it is **highly** recommended to run 
 * Face alignment API (perform face detection, landmark localization and alignment with affine transformations on a whole database folder ```source_root``` with the directory structure as demonstrated in Sec. [Usage](#Usage), and store the aligned results to a new folder ```dest_root``` with the same directory structure): 
   ```
   python face_align.py -source_root [source_root] -dest_root [dest_root] -crop_size [crop_size]
+  #                                  原始人脸数据              矫正后人脸保存路径         人脸尺寸
 
   # python face_align.py -source_root './data/test' -dest_root './data/test_Aligned' -crop_size 112
   ```
@@ -135,6 +137,7 @@ While not required, for optimal performance it is **highly** recommended to run 
 * Remove low-shot data API (remove the low-shot classes with less than ```min_num``` samples in the training set ```root``` with the directory structure as demonstrated in Sec. [Usage](#Usage) for data balance and effective model training):
   ```
   python remove_lowshot.py -root [root] -min_num [min_num]
+  # 删除数据集中样本数量较少的类别。-min_num由自己设置
 
   # python remove_lowshot.py -root './data/train' -min_num 10
   ```
